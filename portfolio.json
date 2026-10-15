@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "name": "atlas-lab-alan-vo",
+  "owner": "ALANDVO",
+  "email": "alanvo@gmail.com",
+  "domain": "AI/ML developer tools",
+  "summary": "Work in progress: atlas-lab-alan-vo",
+  "workflows": [
+    "Statistical genetics: fetch GWAS/eQTL data, compute LD from 1000 Genomes, render 4-panel locus compare plots for colocalization analysis",
+    "Field onboarding: assess prerequisites, classify field maturity, climb 5-rung teaching ladder (motivation\u2192vocabulary\u2192framework\u2192methods\u2192frontier), decode passages into claims/background/inference/critique",
+    "Skill registry: browse, search, and manage validated agent skills for scientific workflows with versioning and metadata"
+  ],
+  "auth": "oidc-keycloak-saml-broker",
+  "llm_providers": [
+    "openai-compatible",
+    "anthropic",
+    "gemini",
+    "ollama"
+  ],
+  "status": "work-in-progress"
+}
