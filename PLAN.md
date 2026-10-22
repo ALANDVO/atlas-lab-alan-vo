@@ -25,15 +25,16 @@ Tests: `backend/tests/test_health.py`, `frontend/src/__tests__/health.test.tsx`
 
 ### auth-oidc — OIDC authentication with Keycloak
 
-Status: in_progress
+Status: done
 
 Acceptance:
 - Login redirects to Keycloak
 - Callback exchanges code for tokens with PKCE
 - Protected endpoints reject unauthenticated requests
 - Role-based access control (viewer/operator/admin)
+- Demo mode for local development
 
-Implementation: `backend/app/core/auth.py`, `backend/app/api/auth.py`, `frontend/src/auth/`
+Implementation: `backend/app/models/auth.py`, `backend/app/services/auth.py`, `backend/app/core/auth.py`, `backend/app/api/auth.py`, `frontend/src/pages/Login.tsx`, `frontend/src/api/client.ts`
 
 Tests: `backend/tests/test_auth.py`, `frontend/src/__tests__/auth.test.tsx`
 
