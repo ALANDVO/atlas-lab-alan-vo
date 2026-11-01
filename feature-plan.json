@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "current_feature": "auth-oidc",
+  "current_feature": "skill-registry",
   "features": [
     {
       "id": "project-skeleton",
@@ -54,7 +54,7 @@
     {
       "id": "skill-registry",
       "title": "Skill registry and management API",
-      "status": "planned",
+      "status": "done",
       "acceptance": [
         "CRUD for skills with versioning",
         "Skill metadata validation",
