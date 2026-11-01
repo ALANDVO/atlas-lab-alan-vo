@@ -4,7 +4,7 @@ Each round completes one feature or repair. Future items are planned, not implem
 
 ## Current round
 
-auth-oidc
+skill-registry
 
 ## Roadmap
 
@@ -40,7 +40,7 @@ Tests: `backend/tests/test_auth.py`, `frontend/src/__tests__/auth.test.tsx`
 
 ### skill-registry — Skill registry and management API
 
-Status: planned
+Status: done
 
 Acceptance:
 - CRUD for skills with versioning

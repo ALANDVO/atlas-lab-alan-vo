@@ -13,6 +13,7 @@ from app.core.database import Base as AppBase, get_db
 
 # Import models to register them with AppBase
 from app.models.auth import User, AuthState
+from app.models.skill import Skill
 
 
 test_engine = create_async_engine(
