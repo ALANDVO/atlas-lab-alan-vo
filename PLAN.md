@@ -4,7 +4,7 @@ Each round completes one feature or repair. Future items are planned, not implem
 
 ## Current round
 
-skill-registry
+statistical-genetics
 
 ## Roadmap
 
@@ -53,7 +53,7 @@ Tests: `backend/tests/test_skills.py`
 
 ### statistical-genetics — Statistical genetics workflow: locus compare
 
-Status: planned
+Status: in_progress
 
 Acceptance:
 - Fetch GWAS Catalog region data
