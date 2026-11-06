@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "current_feature": "skill-registry",
+  "current_feature": "statistical-genetics",
   "features": [
     {
       "id": "project-skeleton",
@@ -72,7 +72,7 @@
     {
       "id": "statistical-genetics",
       "title": "Statistical genetics workflow: locus compare",
-      "status": "planned",
+      "status": "in_progress",
       "acceptance": [
         "Fetch GWAS Catalog region data",
         "Fetch eQTL Catalogue region data",
