@@ -248,4 +248,4 @@ Alan Vo | alanvo@gmail.com | AI & Machine Learning
 
 ---
 
-Alan Vo · [alanvo.net](https://alanvo.net)
+Alan Vo · [alanvo.net](https://alanvo.net) · [X: @alanvoasi](https://x.com/alanvoasi)
