@@ -245,3 +245,7 @@ See [LICENSE](LICENSE) for details.
 ---
 
 Alan Vo | alanvo@gmail.com | AI & Machine Learning
+
+---
+
+Alan Vo · [alanvo.net](https://alanvo.net)

@@ -54,3 +54,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Database migrations not yet configured (Alembic)
 - LLM adapters not implemented
 - Frontend tests use mocks; integration test runs in CI only
+
+---
+
+Alan Vo · [alanvo.net](https://alanvo.net)
