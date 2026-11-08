@@ -315,3 +315,57 @@ class TestGeneticsAPI:
             cookies={"access_token": demo_token}
         )
         assert response.status_code == 400
+
+    @pytest.mark.asyncio
+    async def test_locus_compare_frontend_endpoint(self, client: AsyncClient, demo_token: str):
+        """Test frontend-compatible locus compare endpoint."""
+        with patch.object(locuscompare_service, '_frontend_to_internal') as mock_convert, \
+             patch.object(locuscompare_service, 'run_workflow') as mock_workflow:
+            from app.services.genetics.locuscompare import LocusCompareResponse, LocusComparePanel
+            from app.services.genetics.gwas import GWASRegionResponse
+            from app.services.genetics.eqtl import EQTLRegionResponse
+            from app.services.genetics.ld import LDMatrixResponse
+            from app.services.genetics.locuscompare import LocusCompareRequest
+
+            mock_convert.return_value = LocusCompareRequest(
+                region="1:1000000-1003000",
+                gwas_p_threshold=5e-8,
+                eqtl_gene_id=None,
+                eqtl_tissue="liver",
+                ld_population="EUR",
+                max_variants=100
+            )
+            mock_workflow.return_value = LocusCompareResponse(
+                region="1:1000000-1003000",
+                panels=[
+                    LocusComparePanel(panel_type="gwas", title="GWAS", data={}, plot_config={}),
+                    LocusComparePanel(panel_type="eqtl", title="eQTL", data={}, plot_config={}),
+                    LocusComparePanel(panel_type="ld", title="LD", data={}, plot_config={}),
+                    LocusComparePanel(panel_type="combined", title="Combined", data={}, plot_config={}),
+                ],
+                gwas_data=GWASRegionResponse(variants=[], region="1:1000000-1003000", total_results=5, query_time_ms=50),
+                eqtl_data=EQTLRegionResponse(variants=[], region="1:1000000-1003000", total_results=3, query_time_ms=50),
+                ld_data=LDMatrixResponse(variants=[], ld_matrix=[[1.0]], region="1:1000000-1003000", population="EUR", query_time_ms=50),
+                workflow_time_ms=200,
+                gwas_time_ms=50,
+                eqtl_time_ms=50,
+                ld_time_ms=50,
+            )
+            response = await client.post(
+                "/api/v1/genetics/locuscompare",
+                json={
+                    "gene": "SORT1",
+                    "tissue": "liver",
+                    "outcome_trait": "triglycerides",
+                    "population": "EUR",
+                    "sentinel_snp": "rs12740374",
+                    "window_kb": 500
+                },
+                cookies={"access_token": demo_token}
+            )
+            assert response.status_code == 200
+            data = response.json()
+            assert data["exposure_count"] == 5
+            assert data["outcome_count"] == 3
+            assert data["ld_computed"] == True
+            assert "plot_url" in data

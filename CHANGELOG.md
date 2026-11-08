@@ -1,8 +1,20 @@
 # Changelog
 
-## 1.3.0 — work-in-progress checkpoint
+## 1.4.0 — work-in-progress checkpoint
 
 Partial code published for continued development. Known issues: STATUS.md.
+
+## 1.3.0 — 2026-11-08
+
+### Fixed
+- statistical-genetics: Combined locus compare panel now merges GWAS, eQTL, and LD variant data for proper 4-panel visualization
+- statistical-genetics: Added frontend-compatible endpoint `/api/v1/genetics/locuscompare` accepting sentinel SNP (rsID) and window size in kilobases
+- statistical-genetics: Added sentinel SNP resolution via GWAS Catalog REST API to convert rsID to genomic coordinates
+- statistical-genetics: Updated frontend API client to call the new endpoint
+
+### Added
+- statistical-genetics: New `LocusCompareFrontendRequest` and `LocusCompareFrontendResponse` models for frontend-backend compatibility
+- statistical-genetics: Test coverage for frontend-compatible locus compare endpoint
 
 ## 1.2.0 — work-in-progress checkpoint
 

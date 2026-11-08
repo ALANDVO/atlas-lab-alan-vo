@@ -53,7 +53,7 @@ Tests: `backend/tests/test_skills.py`
 
 ### statistical-genetics — Statistical genetics workflow: locus compare
 
-Status: in_progress
+Status: done
 
 Acceptance:
 - Fetch GWAS Catalog region data
@@ -62,7 +62,7 @@ Acceptance:
 - Render locus compare 4-panel plot
 - End-to-end workflow execution
 
-Implementation: `backend/app/services/genetics/gwas.py`, `backend/app/services/genetics/eqtl.py`, `backend/app/services/genetics/ld.py`, `backend/app/services/genetics/locuscompare.py`, `backend/app/api/genetics.py`
+Implementation: `backend/app/services/genetics/gwas.py`, `backend/app/services/genetics/eqtl.py`, `backend/app/services/genetics/ld.py`, `backend/app/services/genetics/locuscompare.py`, `backend/app/api/genetics.py`, `frontend/src/api/client.ts`, `frontend/src/pages/Genetics.tsx`
 
 Tests: `backend/tests/test_genetics.py`
 
