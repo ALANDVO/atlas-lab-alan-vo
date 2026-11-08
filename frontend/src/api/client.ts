@@ -94,7 +94,7 @@ export interface LocusCompareResponse {
 }
 
 export async function runLocusCompare(request: LocusCompareRequest): Promise<LocusCompareResponse> {
-  const { data } = await api.post<LocusCompareResponse>('/v1/genetics/locuscompare/workflow', request)
+  const { data } = await api.post<LocusCompareResponse>('/v1/genetics/locuscompare', request)
   return data
 }
 

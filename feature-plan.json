@@ -72,7 +72,7 @@
     {
       "id": "statistical-genetics",
       "title": "Statistical genetics workflow: locus compare",
-      "status": "in_progress",
+      "status": "done",
       "acceptance": [
         "Fetch GWAS Catalog region data",
         "Fetch eQTL Catalogue region data",
@@ -85,7 +85,9 @@
         "backend/app/services/genetics/eqtl.py",
         "backend/app/services/genetics/ld.py",
         "backend/app/services/genetics/locuscompare.py",
-        "backend/app/api/genetics.py"
+        "backend/app/api/genetics.py",
+        "frontend/src/api/client.ts",
+        "frontend/src/pages/Genetics.tsx"
       ],
       "tests": [
         "backend/tests/test_genetics.py"
