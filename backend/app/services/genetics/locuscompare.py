@@ -165,6 +165,7 @@ class LocusCompareService:
                     "eqtl_p_value": None,
                     "eqtl_gene": None,
                     "eqtl_tissue": None,
+                    "allele_frequency": None,
                 }
             variant_map[key]["gwas_p_value"] = v.p_value
             variant_map[key]["gwas_trait"] = v.trait
@@ -184,6 +185,7 @@ class LocusCompareService:
                     "eqtl_p_value": v.p_value,
                     "eqtl_gene": v.gene_symbol,
                     "eqtl_tissue": v.tissue,
+                    "allele_frequency": None,
                 }
             variant_map[key]["eqtl_p_value"] = v.p_value
             variant_map[key]["eqtl_gene"] = v.gene_symbol
