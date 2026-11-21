@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "atlas-lab"
-version = "1.0.0"
+version = "1.6.0"
 description = "Turn any AI agent into an AI Scientist"
 readme = "README.md"
 license = {text = "MIT"}

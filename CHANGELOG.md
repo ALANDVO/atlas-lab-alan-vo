@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.6.0 — work-in-progress checkpoint
+
+Partial code published for continued development. Known issues: STATUS.md.
+
+## 1.5.1 — work-in-progress checkpoint
+
+### Added
+- field-onboarding: Prerequisite framework assessment endpoint (`POST /api/v1/onboarding/assess`)
+- field-onboarding: Field maturity classification endpoint (`POST /api/v1/onboarding/classify`)
+- field-onboarding: Ladder-based teaching progression API (`GET/POST /api/v1/onboarding/ladder/step`)
+- field-onboarding: Decode mode for passage analysis (`POST /api/v1/onboarding/decode`)
+- field-onboarding: Session retrieval endpoint (`GET /api/v1/onboarding/session/{session_id}`)
+- field-onboarding: Engine, state, and rung service modules (`backend/app/services/onboarding/`)
+- field-onboarding: Targeted test suite (`backend/tests/test_onboarding.py`, 10 tests)
+
+### Changed
+- Updated PLAN.md: current_feature → field-onboarding, status → in_progress
+- Updated feature-plan.json: added field-onboarding feature entry
+
+### Fixed
+- Import error in rungs.py: added missing `List` typing import
+
 ## 1.5.0 — work-in-progress checkpoint
 
 Partial code published for continued development. Known issues: STATUS.md.

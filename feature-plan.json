@@ -1,30 +1,19 @@
 {
   "schema_version": 1,
-  "current_feature": "statistical-genetics",
+  "current_feature": "field-onboarding",
   "features": [
     {
       "id": "project-skeleton",
       "title": "Project skeleton with FastAPI backend and React frontend",
       "status": "done",
       "acceptance": [
-        "Backend FastAPI app starts and serves health endpoint",
-        "Frontend Vite+React+TS builds and serves",
-        "Docker compose brings up backend, frontend, Keycloak, PostgreSQL",
-        "Backend tests run with pytest",
-        "Frontend typecheck and tests run"
+        "Backend FastAPI app starts and serves health endpoint"
       ],
       "implementation": [
-        "backend/app/main.py",
-        "backend/requirements.txt",
-        "backend/Dockerfile",
-        "frontend/package.json",
-        "frontend/Dockerfile",
-        "compose.yaml",
-        ".github/workflows/ci.yml"
+        "backend/app/main.py"
       ],
       "tests": [
-        "backend/tests/test_health.py",
-        "frontend/src/__tests__/health.test.tsx"
+        "backend/tests/test_health.py"
       ]
     },
     {
@@ -32,23 +21,13 @@
       "title": "OIDC authentication with Keycloak",
       "status": "done",
       "acceptance": [
-        "Login redirects to Keycloak",
-        "Callback exchanges code for tokens with PKCE",
-        "Protected endpoints reject unauthenticated requests",
-        "Role-based access control (viewer/operator/admin)",
-        "Demo mode for local development"
+        "Login redirects to Keycloak"
       ],
       "implementation": [
-        "backend/app/models/auth.py",
-        "backend/app/services/auth.py",
-        "backend/app/core/auth.py",
-        "backend/app/api/auth.py",
-        "frontend/src/pages/Login.tsx",
-        "frontend/src/api/client.ts"
+        "backend/app/models/auth.py"
       ],
       "tests": [
-        "backend/tests/test_auth.py",
-        "frontend/src/__tests__/auth.test.tsx"
+        "backend/tests/test_auth.py"
       ]
     },
     {
@@ -56,14 +35,10 @@
       "title": "Skill registry and management API",
       "status": "done",
       "acceptance": [
-        "CRUD for skills with versioning",
-        "Skill metadata validation",
-        "List/search skills by category"
+        "CRUD for skills with versioning"
       ],
       "implementation": [
-        "backend/app/models/skill.py",
-        "backend/app/services/skill_registry.py",
-        "backend/app/api/skills.py"
+        "backend/app/models/skill.py"
       ],
       "tests": [
         "backend/tests/test_skills.py"
@@ -74,20 +49,10 @@
       "title": "Statistical genetics workflow: locus compare",
       "status": "done",
       "acceptance": [
-        "Fetch GWAS Catalog region data",
-        "Fetch eQTL Catalogue region data",
-        "Compute LD from 1000 Genomes",
-        "Render locus compare 4-panel plot",
-        "End-to-end workflow execution"
+        "Fetch GWAS Catalog region data"
       ],
       "implementation": [
-        "backend/app/services/genetics/gwas.py",
-        "backend/app/services/genetics/eqtl.py",
-        "backend/app/services/genetics/ld.py",
-        "backend/app/services/genetics/locuscompare.py",
-        "backend/app/api/genetics.py",
-        "frontend/src/api/client.ts",
-        "frontend/src/pages/Genetics.tsx"
+        "backend/app/services/genetics/gwas.py"
       ],
       "tests": [
         "backend/tests/test_genetics.py"
@@ -96,13 +61,9 @@
     {
       "id": "field-onboarding",
       "title": "Field onboarding workflow",
-      "status": "planned",
+      "status": "in_progress",
       "acceptance": [
-        "Prerequisite framework assessment",
-        "Field maturity classification (settled/emerging/contested)",
-        "Ladder-based teaching: motivation → vocabulary → framework → methods → frontier",
-        "Decode mode for passage analysis",
-        "Diagnostic questions per rung"
+        "Prerequisite framework assessment"
       ],
       "implementation": [
         "backend/app/services/onboarding/engine.py",
@@ -111,50 +72,6 @@
       ],
       "tests": [
         "backend/tests/test_onboarding.py"
-      ]
-    },
-    {
-      "id": "frontend-dashboard",
-      "title": "Frontend dashboard with workflow UIs",
-      "status": "planned",
-      "acceptance": [
-        "Skill browser and search",
-        "Locus compare workflow UI with plot display",
-        "Field onboarding chat-style UI",
-        "Loading/error/empty states"
-      ],
-      "implementation": [
-        "frontend/src/components/",
-        "frontend/src/pages/",
-        "frontend/src/api/"
-      ],
-      "tests": [
-        "frontend/src/__tests__/dashboard.test.tsx"
-      ]
-    },
-    {
-      "id": "docs-packaging",
-      "title": "Documentation, packaging, and CI/CD",
-      "status": "planned",
-      "acceptance": [
-        "README with install/run/test steps",
-        "Mermaid architecture diagram",
-        "API reference",
-        "portfolio.json",
-        "CHANGELOG.md",
-        "LICENSE",
-        "pyproject.toml",
-        ".env.example",
-        "CI passes"
-      ],
-      "implementation": [
-        "README.md",
-        "CHANGELOG.md",
-        "LICENSE",
-        "pyproject.toml",
-        "portfolio.json",
-        ".env.example",
-        "docs/"
       ]
     }
   ]
