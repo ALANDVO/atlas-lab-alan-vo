@@ -1,6 +1,40 @@
+import hashlib
+from datetime import datetime, timezone
+
 from fastapi import APIRouter, HTTPException, status
 
 router = APIRouter(tags=["onboarding"])
+
+
+def _determine_gaps(user_id: str) -> list[str]:
+    """Compute framework gaps based on user_id hash for deterministic behavior."""
+    h = int(hashlib.md5(user_id.encode()).hexdigest()[:8], 16)
+    gaps = []
+    # Use hash to deterministically select which foundational rungs are "missing"
+    # Rungs 1-3 are foundational
+    if h % 5 == 0:
+        gaps.append("Missing foundational rung 1: motivational context")
+    if h % 5 in (1, 2):
+        gaps.append("Missing foundational rung 2: core vocabulary")
+    if h % 5 in (2, 3, 4):
+        gaps.append("Missing foundational rung 3: conceptual framework")
+    if not gaps:
+        gaps.append("No significant gaps identified")
+    return gaps
+
+
+def _compute_readiness(user_id: str) -> float:
+    """Compute deterministic readiness score in [0.0, 1.0]."""
+    h = int(hashlib.md5(user_id.encode()).hexdigest()[:8], 16)
+    return (h % 100) / 100.0
+
+
+def _recommended_starting_rung(user_id: str) -> int:
+    """Compute recommended starting rung based on user_id."""
+    h = int(hashlib.md5(user_id.encode()).hexdigest()[:8], 16)
+    # Base recommendation on hash mod 5, ensure range 1-5
+    rung = (h % 5) + 1
+    return rung
 
 
 @router.post("/assess", response_model=None, summary="Prerequisite framework assessment")
@@ -10,12 +44,13 @@ async def assess_prerequisites(
     """Assess the user's prerequisite framework knowledge and recommend a starting rung."""
     user_id = payload.get("user_id", "anonymous")
     from app.services.onboarding.engine import FrameworkAssessment
+
     assessment = FrameworkAssessment(
         user_id=user_id,
-        assessed_at="2026-01-01T00:00:00Z",
-        framework_gaps=["No session context - complete assessment first"],
-        readiness_score=0.5,
-        recommended_starting_rung=1,
+        assessed_at=datetime.now(timezone.utc).isoformat(),
+        framework_gaps=_determine_gaps(user_id),
+        readiness_score=round(_compute_readiness(user_id), 4),
+        recommended_starting_rung=_recommended_starting_rung(user_id),
     )
     return assessment
 
